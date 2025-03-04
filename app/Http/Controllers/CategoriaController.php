@@ -28,7 +28,12 @@ class CategoriaController extends Controller
             'activo' => 'boolean'
         ]);
 
-        return Categoria::create($request->all());
+        $categoria = Categoria::create($request->all());
+
+        return response()->json([
+            'message' => 'Categoría creada',
+            'categoria' => $categoria
+        ], 201);
     }
 
     /**
